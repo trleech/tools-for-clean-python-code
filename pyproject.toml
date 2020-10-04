@@ -1,0 +1,34 @@
+[tool.black]
+line-length = 79
+target-version = ['py36', 'py37', 'py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = false
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+fail-under = 95
+exclude = ["setup.py", "docs", "build"]
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*", "^test_*"]
+verbose = 0
+quiet = false
+whitelist-regex = []
+color = true
